@@ -1,0 +1,32 @@
+1. GITHUB REPO
+2. django version
+3. build api
+4. install django-rest-framework
+5. react side 
+6. adding rows and endpoints
+
+#commands
+pip install --upgrade pip
+python3 -m venv app-env
+source app-env/bin/activate
+
+# django version 3.2.8
+
+#my main folder DJANGO-REACT
+
+#IVY main folder mynotes
+
+#he run migrate first and then makemigrations app
+
+root
+1234
+
+
+#…or create a new repository on the command line
+echo "# Django-React" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/josephJose1/Django-React.git
+git push -u origin main
