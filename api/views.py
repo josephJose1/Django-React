@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 #start workign with django rest
+from rest_framework.response import Response
 
+from rest_framework.decorators import api_view
+from api.models import Note
+from api.serializers import NoteSerializer
 # Create your views here.
-from django.http import JsonResponse
 
+@api_view(['GET'])
 def getRoutes(request):
     routes = [
         {
@@ -37,4 +41,16 @@ def getRoutes(request):
             'description': 'Deletes and exiting note'
         },
     ]
-    return JsonResponse(routes, safe=False)
+    return Response(routes)
+
+@api_view(['GET'])
+def getNotes(request):
+    notes = Note.objects.all()
+    serializer = NoteSerializer(notes, many=True) #serializer multiple object
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def getNote(request, pk):
+    note = get_object_or_404(Note, pk=pk)
+    serializer = NoteSerializer(note, many=False) #serializer one single object 
+    return Response(serializer.data)
