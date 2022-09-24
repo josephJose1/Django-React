@@ -8,3 +8,6 @@ class Note(models.Model):
 
     def __str__(self):
         return self.body[0:50]#first 
+
+    class Meta:
+        ordering = ['-updated'] #menus before word reverse
