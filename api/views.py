@@ -5,7 +5,10 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from api.models import Note
 from api.serializers import NoteSerializer
-# Create your views here.
+# Create your views here. REST FULL API
+from rest_framework import generics
+
+
 
 @api_view(['GET'])
 def getRoutes(request):
@@ -86,3 +89,12 @@ def deleteNote(request, pk):
     note = get_object_or_404(Note, pk=pk)
     note.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class NoteList(generics.ListCreateAPIView):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
+
+class NoteDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer 
