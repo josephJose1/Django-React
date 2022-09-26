@@ -35,3 +35,9 @@ git push -u origin main
 #we have the first part done 
 1. backend
 2. two api
+
+
+
+#move frontend inside django project
+#run
+npm run build
