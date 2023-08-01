@@ -41,3 +41,7 @@ git push -u origin main
 #move frontend inside django project
 #run
 npm run build
+
+# git need to push changes from react frontend and django backend
+
+#git submodules_
